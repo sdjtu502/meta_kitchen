@@ -55,7 +55,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=metadash',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'secret',
+			'password' => 'GSRoot233!',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(
