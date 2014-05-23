@@ -7,7 +7,11 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+<<<<<<< HEAD
 	'name'=>'MetaDash data tracker',
+=======
+	'name'=>'MetaDash metadata tracker',
+>>>>>>> 99e2246e8f6c8f907fc870d5f29a3caf6f725a75
 
 	// preloading 'log' component
 	'preload'=>array('log'),

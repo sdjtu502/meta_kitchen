@@ -1,8 +1,14 @@
 <?php
 
 // change the following paths if necessary
-//$yii=dirname(__FILE__).'/../../../../Program Files (x86)/PHP/Yii/framework/yii.php';
-$yii=dirname(__FILE__).'/../../../../home/ubuntu/yii/yii-1.1.14.f0fee9/framework/yii.php';
+//WIN:
+$yii=dirname(__FILE__).'/../../../../Program Files (x86)/PHP/Yii/framework/yii.php';
+//LIN:
+//$yii=dirname(__FILE__).'/../../../../home/ubuntu/yii/yii-1.1.14.f0fee9/framework/yii.php';
+<<<<<<< HEAD
+=======
+//$yii='/home/ubuntu/yii/yii-1.1.14.f0fee9/framework/yii.php';
+>>>>>>> 99e2246e8f6c8f907fc870d5f29a3caf6f725a75
 $config=dirname(__FILE__).'/protected/config/main.php';
 
 // remove the following lines when in production mode
