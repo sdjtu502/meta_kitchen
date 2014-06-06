@@ -19,13 +19,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'data_set_name') ?>
 
-    <?= $form->field($model, 'abbreviation') ?>
+    <?= $form->field($model, 'data_set_abbrev') ?>
 
     <?= $form->field($model, 'data_source') ?>
 
-    <?= $form->field($model, 'access_restricted')->checkbox() ?>
+    <?= $form->field($model, 'data_source_name') ?>
 
-    <?= $form->field($model, 'public')->checkbox() ?>
+    <?= $form->field($model, 'data_source_abbrev') ?>
+
+    <?php // echo $form->field($model, 'access_restricted')->checkbox() ?>
+
+    <?php // echo $form->field($model, 'public')->checkbox() ?>
 
     <?php // echo $form->field($model, 'metadata_public')->checkbox() ?>
 
@@ -133,7 +137,13 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'database_name') ?>
 
+    <?php // echo $form->field($model, 'rowsource') ?>
+
     <?php // echo $form->field($model, 'hubid') ?>
+
+    <?php // echo $form->field($model, 'orgid') ?>
+
+    <?php // echo $form->field($model, 'projid') ?>
 
     <?php // echo $form->field($model, 'id') ?>
 

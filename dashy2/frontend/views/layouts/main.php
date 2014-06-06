@@ -26,7 +26,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => 'MetaDash - a project of Chapin Hall at the University of Chicago',   //Chapin Custom - originally 'My Company'
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -47,10 +47,26 @@ AppAsset::register($this);
                     'linkOptions' => ['data-method' => 'post']
                 ];
             }
-            echo Nav::widget([
+			echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => $menuItems,
             ]);
+            
+			/* GMS CUSTOM */
+            echo Nav::widget(array( 
+			 'options' => ['class' => 'navbar-nav navbar-right'],
+			 'items' => array( 
+			   array( 'label' => 'Metadata Lifecycle', 
+			     'items' => array( 
+			       array( 'label' => 'Data Source', 'url' => 'index.php?r=datasource/index#' ), 
+			       array( 'label' => 'Data Set', 'url' => 'index.php?r=dataset/index#' ), 
+			       array( 'label' => 'Data Request (outbound)', 'url' => 'index.php?r=outbounddatarequest/index#' ), 
+			       array( 'label' => 'Data Receipt', 'url' => 'index.php?r=datareceipt/index#' ),
+			     ),
+			   ), 
+			  ), 
+			));      /* END CUSTOM */
+			
             NavBar::end();
         ?>
 

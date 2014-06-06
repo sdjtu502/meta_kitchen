@@ -8,8 +8,10 @@ use Yii;
  * This is the model class for table "data_set".
  *
  * @property string $data_set_name
- * @property string $abbreviation
- * @property string $data_source
+ * @property string $data_set_abbrev
+ * @property integer $data_source
+ * @property string $data_source_name
+ * @property string $data_source_abbrev
  * @property boolean $access_restricted
  * @property boolean $public
  * @property boolean $metadata_public
@@ -65,7 +67,10 @@ use Yii;
  * @property boolean $delete_row
  * @property string $import_flag
  * @property string $database_name
+ * @property string $rowsource
  * @property string $hubid
+ * @property string $orgid
+ * @property string $projid
  * @property integer $id
  *
  * @property DataSetCommunication[] $dataSetCommunications
@@ -88,20 +93,20 @@ class DataSet extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['data_source', 'initial_import_est_hours', 'routine_import_est_hours', 'data_cost_est', 'views'], 'integer'],
             [['access_restricted', 'public', 'metadata_public', 'data_public', 'exclude', 'delete_row'], 'boolean'],
             [['first_received', 'most_recent_update', 'date_created', 'last_updated'], 'safe'],
-            [['initial_import_est_hours', 'routine_import_est_hours', 'data_cost_est', 'views'], 'integer'],
             [['data_quality_score', 'importance_score', 'difficulty_score', 'cost_score'], 'number'],
-            [['data_set_name', 'matchability', 'periodicity', 'contact_email', 'transfer_method', 'business_owner', 'database_name'], 'string', 'max' => 100],
-            [['abbreviation'], 'string', 'max' => 8],
-            [['data_source', 'data_cost_timeperiod', 'hubid'], 'string', 'max' => 10],
+            [['data_set_name', 'data_source_name', 'matchability', 'periodicity', 'contact_email', 'transfer_method', 'business_owner', 'database_name'], 'string', 'max' => 100],
+            [['data_set_abbrev', 'contact_phone', 'contact_fax', 'creator', 'update_user'], 'string', 'max' => 20],
+            [['data_source_abbrev', 'rowsource'], 'string', 'max' => 12],
             [['description', 'initial_import_comments', 'routine_import_comments', 'data_cost_comments'], 'string', 'max' => 1000],
             [['terms_of_use', 'internal_location'], 'string', 'max' => 300],
             [['software_platform', 'other_platform', 'contact_city'], 'string', 'max' => 30],
             [['overall_quality', 'overall_accuracy', 'overall_completeness', 'contact_information'], 'string', 'max' => 600],
             [['granularity', 'contact_address2', 'contact_address3'], 'string', 'max' => 40],
+            [['data_cost_timeperiod', 'hubid', 'orgid', 'projid'], 'string', 'max' => 10],
             [['owner', 'contact_name'], 'string', 'max' => 200],
-            [['contact_phone', 'contact_fax', 'creator', 'update_user'], 'string', 'max' => 20],
             [['contact_address'], 'string', 'max' => 50],
             [['contact_state'], 'string', 'max' => 2],
             [['contact_zip'], 'string', 'max' => 11],
@@ -118,8 +123,10 @@ class DataSet extends \yii\db\ActiveRecord
     {
         return [
             'data_set_name' => Yii::t('app', 'Data Set Name'),
-            'abbreviation' => Yii::t('app', 'Abbreviation'),
+            'data_set_abbrev' => Yii::t('app', 'Data Set Abbrev'),
             'data_source' => Yii::t('app', 'Data Source'),
+            'data_source_name' => Yii::t('app', 'Data Source Name'),
+            'data_source_abbrev' => Yii::t('app', 'Data Source Abbrev'),
             'access_restricted' => Yii::t('app', 'Access Restricted'),
             'public' => Yii::t('app', 'Public'),
             'metadata_public' => Yii::t('app', 'Metadata Public'),
@@ -175,7 +182,10 @@ class DataSet extends \yii\db\ActiveRecord
             'delete_row' => Yii::t('app', 'Delete Row'),
             'import_flag' => Yii::t('app', 'Import Flag'),
             'database_name' => Yii::t('app', 'Database Name'),
+            'rowsource' => Yii::t('app', 'Rowsource'),
             'hubid' => Yii::t('app', 'Hubid'),
+            'orgid' => Yii::t('app', 'Orgid'),
+            'projid' => Yii::t('app', 'Projid'),
             'id' => Yii::t('app', 'ID'),
         ];
     }

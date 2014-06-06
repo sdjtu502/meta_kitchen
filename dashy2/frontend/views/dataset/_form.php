@@ -14,6 +14,16 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'data_source')->textInput() ?>
+
+    <?= $form->field($model, 'initial_import_est_hours')->textInput() ?>
+
+    <?= $form->field($model, 'routine_import_est_hours')->textInput() ?>
+
+    <?= $form->field($model, 'data_cost_est')->textInput() ?>
+
+    <?= $form->field($model, 'views')->textInput() ?>
+
     <?= $form->field($model, 'access_restricted')->checkbox() ?>
 
     <?= $form->field($model, 'public')->checkbox() ?>
@@ -34,14 +44,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'last_updated')->textInput() ?>
 
-    <?= $form->field($model, 'initial_import_est_hours')->textInput() ?>
-
-    <?= $form->field($model, 'routine_import_est_hours')->textInput() ?>
-
-    <?= $form->field($model, 'data_cost_est')->textInput() ?>
-
-    <?= $form->field($model, 'views')->textInput() ?>
-
     <?= $form->field($model, 'data_quality_score')->textInput() ?>
 
     <?= $form->field($model, 'importance_score')->textInput() ?>
@@ -51,6 +53,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'cost_score')->textInput() ?>
 
     <?= $form->field($model, 'data_set_name')->textInput(['maxlength' => 100]) ?>
+
+    <?= $form->field($model, 'data_source_name')->textInput(['maxlength' => 100]) ?>
 
     <?= $form->field($model, 'matchability')->textInput(['maxlength' => 100]) ?>
 
@@ -64,13 +68,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'database_name')->textInput(['maxlength' => 100]) ?>
 
-    <?= $form->field($model, 'abbreviation')->textInput(['maxlength' => 8]) ?>
+    <?= $form->field($model, 'data_set_abbrev')->textInput(['maxlength' => 20]) ?>
 
-    <?= $form->field($model, 'data_source')->textInput(['maxlength' => 10]) ?>
+    <?= $form->field($model, 'contact_phone')->textInput(['maxlength' => 20]) ?>
 
-    <?= $form->field($model, 'data_cost_timeperiod')->textInput(['maxlength' => 10]) ?>
+    <?= $form->field($model, 'contact_fax')->textInput(['maxlength' => 20]) ?>
 
-    <?= $form->field($model, 'hubid')->textInput(['maxlength' => 10]) ?>
+    <?= $form->field($model, 'creator')->textInput(['maxlength' => 20]) ?>
+
+    <?= $form->field($model, 'update_user')->textInput(['maxlength' => 20]) ?>
+
+    <?= $form->field($model, 'data_source_abbrev')->textInput(['maxlength' => 12]) ?>
+
+    <?= $form->field($model, 'rowsource')->textInput(['maxlength' => 12]) ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => 1000]) ?>
 
@@ -104,17 +114,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'contact_address3')->textInput(['maxlength' => 40]) ?>
 
+    <?= $form->field($model, 'data_cost_timeperiod')->textInput(['maxlength' => 10]) ?>
+
+    <?= $form->field($model, 'hubid')->textInput(['maxlength' => 10]) ?>
+
+    <?= $form->field($model, 'orgid')->textInput(['maxlength' => 10]) ?>
+
+    <?= $form->field($model, 'projid')->textInput(['maxlength' => 10]) ?>
+
     <?= $form->field($model, 'owner')->textInput(['maxlength' => 200]) ?>
 
     <?= $form->field($model, 'contact_name')->textInput(['maxlength' => 200]) ?>
-
-    <?= $form->field($model, 'contact_phone')->textInput(['maxlength' => 20]) ?>
-
-    <?= $form->field($model, 'contact_fax')->textInput(['maxlength' => 20]) ?>
-
-    <?= $form->field($model, 'creator')->textInput(['maxlength' => 20]) ?>
-
-    <?= $form->field($model, 'update_user')->textInput(['maxlength' => 20]) ?>
 
     <?= $form->field($model, 'contact_address')->textInput(['maxlength' => 50]) ?>
 

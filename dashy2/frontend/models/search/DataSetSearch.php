@@ -15,9 +15,9 @@ class DataSetSearch extends DataSet
     public function rules()
     {
         return [
-            [['data_set_name', 'abbreviation', 'data_source', 'description', 'terms_of_use', 'software_platform', 'other_platform', 'overall_quality', 'overall_accuracy', 'overall_completeness', 'matchability', 'periodicity', 'granularity', 'first_received', 'most_recent_update', 'initial_import_comments', 'routine_import_comments', 'data_cost_timeperiod', 'data_cost_comments', 'owner', 'contact_name', 'contact_email', 'contact_phone', 'contact_fax', 'contact_address', 'contact_address2', 'contact_address3', 'contact_city', 'contact_state', 'contact_zip', 'url1', 'url2', 'url3', 'internal_location', 'transfer_method', 'comments', 'creator', 'update_user', 'date_created', 'last_updated', 'business_owner', 'contact_information', 'import_flag', 'database_name', 'hubid'], 'safe'],
+            [['data_set_name', 'data_set_abbrev', 'data_source_name', 'data_source_abbrev', 'description', 'terms_of_use', 'software_platform', 'other_platform', 'overall_quality', 'overall_accuracy', 'overall_completeness', 'matchability', 'periodicity', 'granularity', 'first_received', 'most_recent_update', 'initial_import_comments', 'routine_import_comments', 'data_cost_timeperiod', 'data_cost_comments', 'owner', 'contact_name', 'contact_email', 'contact_phone', 'contact_fax', 'contact_address', 'contact_address2', 'contact_address3', 'contact_city', 'contact_state', 'contact_zip', 'url1', 'url2', 'url3', 'internal_location', 'transfer_method', 'comments', 'creator', 'update_user', 'date_created', 'last_updated', 'business_owner', 'contact_information', 'import_flag', 'database_name', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
+            [['data_source', 'initial_import_est_hours', 'routine_import_est_hours', 'data_cost_est', 'views', 'id'], 'integer'],
             [['access_restricted', 'public', 'metadata_public', 'data_public', 'exclude', 'delete_row'], 'boolean'],
-            [['initial_import_est_hours', 'routine_import_est_hours', 'data_cost_est', 'views', 'id'], 'integer'],
             [['data_quality_score', 'importance_score', 'difficulty_score', 'cost_score'], 'number'],
         ];
     }
@@ -41,6 +41,7 @@ class DataSetSearch extends DataSet
         }
 
         $query->andFilterWhere([
+            'data_source' => $this->data_source,
             'access_restricted' => $this->access_restricted,
             'public' => $this->public,
             'metadata_public' => $this->metadata_public,
@@ -63,8 +64,9 @@ class DataSetSearch extends DataSet
         ]);
 
         $query->andFilterWhere(['like', 'data_set_name', $this->data_set_name])
-            ->andFilterWhere(['like', 'abbreviation', $this->abbreviation])
-            ->andFilterWhere(['like', 'data_source', $this->data_source])
+            ->andFilterWhere(['like', 'data_set_abbrev', $this->data_set_abbrev])
+            ->andFilterWhere(['like', 'data_source_name', $this->data_source_name])
+            ->andFilterWhere(['like', 'data_source_abbrev', $this->data_source_abbrev])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'terms_of_use', $this->terms_of_use])
             ->andFilterWhere(['like', 'software_platform', $this->software_platform])
@@ -102,7 +104,10 @@ class DataSetSearch extends DataSet
             ->andFilterWhere(['like', 'contact_information', $this->contact_information])
             ->andFilterWhere(['like', 'import_flag', $this->import_flag])
             ->andFilterWhere(['like', 'database_name', $this->database_name])
-            ->andFilterWhere(['like', 'hubid', $this->hubid]);
+            ->andFilterWhere(['like', 'rowsource', $this->rowsource])
+            ->andFilterWhere(['like', 'hubid', $this->hubid])
+            ->andFilterWhere(['like', 'orgid', $this->orgid])
+            ->andFilterWhere(['like', 'projid', $this->projid]);
 
         return $dataProvider;
     }

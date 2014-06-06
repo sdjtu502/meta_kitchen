@@ -31,8 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'data_set_name',
-            'abbreviation',
+            'data_set_abbrev',
             'data_source',
+            'data_source_name',
+            'data_source_abbrev',
             'access_restricted:boolean',
             'public:boolean',
             'metadata_public:boolean',
@@ -88,7 +90,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'delete_row:boolean',
             'import_flag',
             'database_name',
+            'rowsource',
             'hubid',
+            'orgid',
+            'projid',
             'id',
         ],
     ]) ?>

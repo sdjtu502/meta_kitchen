@@ -15,8 +15,9 @@ class DataReceiptSearch extends DataReceipt
     public function rules()
     {
         return [
-            [['data_source', 'data_set', 'db', 'reason', 'comments', 'file_format', 'file_format_other', 'person_sending', 'org_sending', 'person_receiving', 'saved_to_loc', 'export_date', 'rcv_date'], 'safe'],
-            [['id'], 'integer'],
+            [['data_received', 'data_set_abbrev', 'data_source_abbrev', 'reason', 'file_format', 'file_format_other', 'person_sending', 'person_receiving', 'export_date', 'receipt_date', 'saved_to_loc', 'comments', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
+            [['data_set', 'data_source', 'id'], 'integer'],
+            [['exclude', 'delete_row'], 'boolean'],
         ];
     }
 
@@ -39,22 +40,33 @@ class DataReceiptSearch extends DataReceipt
         }
 
         $query->andFilterWhere([
-            'export_date' => $this->export_date,
-            'rcv_date' => $this->rcv_date,
+            'data_set' => $this->data_set,
+            'data_source' => $this->data_source,
+            'receipt_date' => $this->receipt_date,
+            'date_created' => $this->date_created,
+            'last_updated' => $this->last_updated,
+            'exclude' => $this->exclude,
+            'delete_row' => $this->delete_row,
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'data_source', $this->data_source])
-            ->andFilterWhere(['like', 'data_set', $this->data_set])
-            ->andFilterWhere(['like', 'db', $this->db])
+        $query->andFilterWhere(['like', 'data_received', $this->data_received])
+            ->andFilterWhere(['like', 'data_set_abbrev', $this->data_set_abbrev])
+            ->andFilterWhere(['like', 'data_source_abbrev', $this->data_source_abbrev])
             ->andFilterWhere(['like', 'reason', $this->reason])
-            ->andFilterWhere(['like', 'comments', $this->comments])
             ->andFilterWhere(['like', 'file_format', $this->file_format])
             ->andFilterWhere(['like', 'file_format_other', $this->file_format_other])
             ->andFilterWhere(['like', 'person_sending', $this->person_sending])
-            ->andFilterWhere(['like', 'org_sending', $this->org_sending])
             ->andFilterWhere(['like', 'person_receiving', $this->person_receiving])
-            ->andFilterWhere(['like', 'saved_to_loc', $this->saved_to_loc]);
+            ->andFilterWhere(['like', 'export_date', $this->export_date])
+            ->andFilterWhere(['like', 'saved_to_loc', $this->saved_to_loc])
+            ->andFilterWhere(['like', 'comments', $this->comments])
+            ->andFilterWhere(['like', 'creator', $this->creator])
+            ->andFilterWhere(['like', 'update_user', $this->update_user])
+            ->andFilterWhere(['like', 'rowsource', $this->rowsource])
+            ->andFilterWhere(['like', 'hubid', $this->hubid])
+            ->andFilterWhere(['like', 'orgid', $this->orgid])
+            ->andFilterWhere(['like', 'projid', $this->projid]);
 
         return $dataProvider;
     }
