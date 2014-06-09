@@ -43,6 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'export_date',
             'receipt_date',
             'saved_to_loc',
+            'detail_url',
             'comments',
             'date_created',
             'creator',

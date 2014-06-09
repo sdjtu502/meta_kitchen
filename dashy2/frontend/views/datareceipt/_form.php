@@ -58,6 +58,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'saved_to_loc')->textInput(['maxlength' => 200]) ?>
 
+    <?= $form->field($model, 'detail_url')->textInput(['maxlength' => 200]) ?>
+
     <?= $form->field($model, 'comments')->textInput(['maxlength' => 1000]) ?>
 
     <?= $form->field($model, 'rowsource')->textInput(['maxlength' => 12]) ?>

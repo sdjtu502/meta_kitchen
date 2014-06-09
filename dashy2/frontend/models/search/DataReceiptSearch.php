@@ -15,7 +15,7 @@ class DataReceiptSearch extends DataReceipt
     public function rules()
     {
         return [
-            [['data_received', 'data_set_abbrev', 'data_source_abbrev', 'reason', 'file_format', 'file_format_other', 'person_sending', 'person_receiving', 'export_date', 'receipt_date', 'saved_to_loc', 'comments', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
+            [['data_received', 'data_set_abbrev', 'data_source_abbrev', 'reason', 'file_format', 'file_format_other', 'person_sending', 'person_receiving', 'export_date', 'receipt_date', 'saved_to_loc', 'detail_url', 'comments', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
             [['data_set', 'data_source', 'id'], 'integer'],
             [['exclude', 'delete_row'], 'boolean'],
         ];
@@ -60,6 +60,7 @@ class DataReceiptSearch extends DataReceipt
             ->andFilterWhere(['like', 'person_receiving', $this->person_receiving])
             ->andFilterWhere(['like', 'export_date', $this->export_date])
             ->andFilterWhere(['like', 'saved_to_loc', $this->saved_to_loc])
+            ->andFilterWhere(['like', 'detail_url', $this->detail_url])
             ->andFilterWhere(['like', 'comments', $this->comments])
             ->andFilterWhere(['like', 'creator', $this->creator])
             ->andFilterWhere(['like', 'update_user', $this->update_user])

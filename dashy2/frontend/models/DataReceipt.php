@@ -22,6 +22,7 @@ use Yii;
  * @property string $export_date
  * @property string $receipt_date
  * @property string $saved_to_loc
+ * @property string $detail_url
  * @property string $comments
  * @property string $date_created
  * @property string $creator
@@ -59,7 +60,7 @@ class DataReceipt extends \yii\db\ActiveRecord
             [['reason', 'file_format', 'hubid', 'orgid', 'projid'], 'string', 'max' => 10],
             [['file_format_other'], 'string', 'max' => 80],
             [['person_sending', 'person_receiving'], 'string', 'max' => 40],
-            [['saved_to_loc'], 'string', 'max' => 200],
+            [['saved_to_loc', 'detail_url'], 'string', 'max' => 200],
             [['comments'], 'string', 'max' => 1000],
             [['rowsource'], 'string', 'max' => 12]
         ];
@@ -84,6 +85,7 @@ class DataReceipt extends \yii\db\ActiveRecord
             'export_date' => Yii::t('app', 'Export Date'),
             'receipt_date' => Yii::t('app', 'Receipt Date'),
             'saved_to_loc' => Yii::t('app', 'Saved To Loc'),
+            'detail_url' => Yii::t('app', 'Source URL'),
             'comments' => Yii::t('app', 'Comments'),
             'date_created' => Yii::t('app', 'Date Created'),
             'creator' => Yii::t('app', 'Creator'),

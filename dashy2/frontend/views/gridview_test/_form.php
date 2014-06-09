@@ -40,6 +40,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'saved_to_loc')->textInput(['maxlength' => 200]) ?>
 
+    <?= $form->field($model, 'detail_url')->textInput(['maxlength' => 200]) ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

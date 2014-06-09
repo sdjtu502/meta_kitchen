@@ -43,6 +43,8 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'saved_to_loc') ?>
 
+    <?php // echo $form->field($model, 'detail_url') ?>
+
     <?php // echo $form->field($model, 'comments') ?>
 
     <?php // echo $form->field($model, 'date_created') ?>

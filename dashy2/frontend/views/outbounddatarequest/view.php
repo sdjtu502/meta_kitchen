@@ -9,7 +9,8 @@ use yii\grid\GridView;  //GMS CUSTOM
  * @var frontend\models\OutboundDataRequest $model
  */
 
-$this->title = $model->id;
+//GMS CUSTOM display "Data Requested" NOT ID. $this->title = $model->id;
+$this->title = $model->data_source_abbrev . ": " . $model->data_requested;   //End CUSTOM
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Outbound Data Requests'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -35,68 +36,67 @@ $this->params['breadcrumbs'][] = $this->title;
             'data_requested',
             'category',
             'subcategory',
-            'requester',
-            'requester_org',
-            'requester_email:email',
-            'requester_phone',
+            //'requester',
+            //'requester_org',
+            //'requester_email:email',
+            //'requester_phone',
             'provider_org',
-            'provider_name',
-            'provider_email:email',
-            'provider_phone',
-            'need_by_date',
-            'description',
-            'purpose',
-            'data_made_public:boolean',
-            'data_sharing_agrmnt_status',
+            //'provider_name',
+            //'provider_email:email',
+            //'provider_phone',
+            //'need_by_date',
+            //'description',
+            //'purpose',
+            //'data_made_public:boolean',
+            //'data_sharing_agrmnt_status',
             'status',
             'status_notes',
             'last_follow_up',
             'receipt_date',
-            'verified_by',
-            'verified_date',
+            //'verified_by',
+            //'verified_date',
             'verification_notes',
             're_request_date',
             'data_set_abbrev',
-            'data_set',
+            //'data_set',
             'data_source_abbrev',
-            'data_source',
-            'comments',
-            'date_created',
-            'creator',
-            'last_updated',
-            'update_user',
-            'rowsource',
-            'hubid',
-            'orgid',
-            'projid',
-            'id',
+            //'data_source',
+            //'comments',
+            //'date_created',
+            //'creator',
+            //'last_updated',
+            //'update_user',
+            //'rowsource',
+            //'hubid',
+            //'orgid',
+            //'projid',
+            //'id',
         ],
     ]) ?>
 	
 	
-    <?=  //GMS CUSTOM
-	//$xyz = array();
-	//$xyz = $model->getDataReceipts()->andWhere('id=8')->one();
-	//echo "<br><br>Type: '" . gettype($xyz) . "'";
-	//$xyz = $model->getDataReceipts2()->andWhere('id=8')->one();
-	//echo "<br><br>Type: '" . gettype($xyz) . "'";
-	//var_dump(get_object_vars( $model->getDataReceipts() ));
-	/*
-	var_dump( $model->dataReceipts );
-	$childrows = $model->dataReceipts;
-	echo "<br><br>1<br>";
-	var_dump($childrows[1]["data_received"]);
-	*/
-	
-	$childrows = var_dump( $model->dataReceipts );
-	$childrows = $model->dataReceipts;
-	$numrows = count($childrows);
-    echo "<br><br>NumRows: " .  (string) $numrows . "<br><br>";
-	for ($i = 0; $i < $numrows; $i++) 
+    <?php
+	//GMS CUSTOM - display DataReceipts for this DataSet (if any found), extracted from the Chapin Hall data enclave
+	/* $childrows = $model->dataReceipts; */
+	//var_dump($model->dataReceipts);
+	echo "<h2>Data receipts related to this data set</h2>";
+	echo "<table id='datareceipt' name='datareceipt' border=0 cellpadding=5>";
+	for ($i = 0; $i < count($model->dataReceipts); $i++) 
 	{
-		echo "<br><br>" . print_r($childrows[$i]["data_received"]);
+        $data_requested = (string)$model->dataReceipts[$i]["data_received"];
+		$detail_url = (string)$model->dataReceipts[$i]["detail_url"];
+		echo "<tr>";
+		echo "<td bgcolor=darkcyan><font face=arial size=2 color=darkgray>" . (string)$model->dataReceipts[$i]["data_source_abbrev"] . "</td>";
+		if(empty($data_requested) or empty($detail_url)){              //If incomplete information, don't attempt to display a live URL
+			echo "<td bgcolor=darkcyan><font face=arial size=2 color=darkgray>" . (string)$model->dataReceipts[$i]["data_received"] . "</font></td>";
+		} else {                                                       //If complete information, display a live URL
+			echo "<td bgcolor=darkcyan><a href='" . (string)$model->dataReceipts[$i]["detail_url"] . "'><font face=arial size=2 color=darkblue>" . (string)$model->dataReceipts[$i]["data_received"] . "</a></font></td>";
+		}
+		echo "<td bgcolor=darkcyan><font face=arial size=2 color=darkgray>" . (string)$model->dataReceipts[$i]["export_date"] . "</font></td>";
+		echo "</tr>";
 	}	
-    
+	echo "</table>";
+	//END GMS CUSTOM
 	?>
 
 </div>
