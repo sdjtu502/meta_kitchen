@@ -6,5 +6,11 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-    ],
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=localhost;dbname=metadash',
+            'username' => 'root',
+            'password' => 'CHRoot1313!',
+            'charset' => 'utf8',
+        ],    ],
 ];
