@@ -81,6 +81,11 @@
 		<?php echo $form->textField($model,'Last_Updated'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'Table_Id'); ?>
+		<?php echo $form->textField($model,'Table_Id'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

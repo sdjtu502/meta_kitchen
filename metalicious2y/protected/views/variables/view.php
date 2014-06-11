@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Variable #<?php echo $model->Variable_ID; ?></h1>
+<h1>View Variables #<?php echo $model->Variable_ID; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -35,5 +35,6 @@ $this->menu=array(
 		'Views',
 		'Date_Created',
 		'Last_Updated',
+		'Table_Id',
 	),
 )); ?>

@@ -1,0 +1,8 @@
+data_source,data_set,url,descrip,date_created,last_updated
+CCTS,IL_DHS_CCTS,https://enclave.chapinhall.org/?q=node/550,CCTS overview,2014-06-11,2014-06-11
+CCTS,IL_DHS_CCTS,https://enclave.chapinhall.org/?q=node/567,CCTS data structure overview,2014-06-11,2014-06-11
+CCTS,IL_DHS_CCTS,https://enclave.chapinhall.org/?q=node/647,List of tables in the Sybase CCTS database,2014-06-11,2014-06-11
+CCTS,IL_DHS_CCTS,https://enclave.chapinhall.org/?q=node/1048,CCTS Members table overview,2014-06-11,2014-06-11
+CCTS,IL_DHS_CCTS,https://enclave.chapinhall.org/?q=node/1050,CCTS Providers table overview,2014-06-11,2014-06-11
+CCTS,IL_DHS_CCTS,https://enclave.chapinhall.org/?q=node/1049,CCTS Payments table overview,2014-06-11,2014-06-11
+CCTS,IL_DHS_CCTS,http://www.dhs.state.il.us/OneNetLibrary/27897/documents/Manuals/HCD/ChildCareTrackingSystem-HowTo.pdf,DHS manual for CCTS data entry,2014-06-11,2014-06-11

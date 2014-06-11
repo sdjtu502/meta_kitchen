@@ -52,7 +52,7 @@ class TablesController extends Controller
 	public function actionView($id)
 	{
 		/* METALICIOUS CUSTOM: ADD LIST OF CHILD RECORDS FOR THE PARENT RECORD BEING DISPLAYED. */
-		$variableDataProvider=new CActiveDataProvider('variables', array(
+		$variableDataProvider=new CActiveDataProvider('Variables', array(
 			'criteria'=>array(
 		 		'condition'=>'Table_ID=:Table_Id',
 		 		'params'=>array(':Table_Id'=>$this->loadModel($id)->Table_ID),

@@ -6,13 +6,11 @@
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Variable_ID')); ?>:</b>
-	<?php /* METALICIOUS CUSTOM: DISPLAY ID AS PLAIN TEXT, NOT HYPERLINK. echo CHtml::link(CHtml::encode($data->Variable_ID), array('view', 'id'=>$data->Variable_ID)); */ ?>
-	<?php echo CHtml::encode($data->Variable_ID); ?>
+	<?php echo CHtml::link(CHtml::encode($data->Variable_ID), array('view', 'id'=>$data->Variable_ID)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Variable_Name')); ?>:</b>
-	<?php /* METALICIOUS CUSTOM: DISPLAY NAME AS HYPERLINK, NOT PLAIN TEXT.  echo CHtml::encode($data->Variable_Name); */ ?>
-	<?php echo CHtml::link(CHtml::encode($data->Variable_Name), array('view', 'id'=>$data->Variable_ID)); ?>
+	<?php echo CHtml::encode($data->Variable_Name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Variable_Description')); ?>:</b>
@@ -27,12 +25,6 @@
 	<?php echo CHtml::encode($data->Variable_Length); ?>
 	<br />
 
-	<?php	/*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Table_Id')); ?>:</b>
-	<?php echo CHtml::encode($data->Table_Id); ?>
-	<br />  */  ?>
-
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Variable_Values')); ?>:</b>
 	<?php echo CHtml::encode($data->Variable_Values); ?>
 	<br />
@@ -41,6 +33,7 @@
 	<?php echo CHtml::encode($data->Variable_Example); ?>
 	<br />
 
+	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Variable_Comments')); ?>:</b>
 	<?php echo CHtml::encode($data->Variable_Comments); ?>
 	<br />
@@ -67,6 +60,10 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Last_Updated')); ?>:</b>
 	<?php echo CHtml::encode($data->Last_Updated); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Table_Id')); ?>:</b>
+	<?php echo CHtml::encode($data->Table_Id); ?>
 	<br />
 
 	*/ ?>

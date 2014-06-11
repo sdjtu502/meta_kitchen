@@ -1,0 +1,4 @@
+workflow_name,project,descrip,data_set_abbrev,data_set,date_created,last_updated
+OPC 2011 forms - normalize and deidentify,OAKPARK_PCOLLAB,"Import CiviCRM screening and intake form data (2011 forms), deidentify and normalize the data",OPCOLAB_CVCRM11FRM,0,2014-06-11,2014-06-11
+OPC 2013 forms - normalize and deidentify,OAKPARK_PCOLLAB,"Import CiviCRM screening and intake form data (2013 forms), deidentify and normalize the data",OPCOLAB_CVCRM13FRM,0,2014-06-11,2014-06-11
+Import CCTS members from CSV files to MySql,CCTS_HARRIS_SURVEY,Import CCTS members from CSV files to MySql and join with Harris School survey data,CCTS_HARRIS_SURVEY,0,2014-06-11,2014-06-11

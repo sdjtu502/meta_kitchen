@@ -51,21 +51,8 @@ class VariablesController extends Controller
 	 */
 	public function actionView($id)
 	{
-		/* METALICIOUS CUSTOM: ADD LIST OF CHILD RECORDS FOR THE PARENT RECORD BEING DISPLAYED. */
-		$variableDataProvider=new CActiveDataProvider('variables', array(
-			'criteria'=>array(
-		 		'condition'=>'Table_ID=:Table_Id',
-		 		'params'=>array(':Table_Id'=>$this->loadModel($id)->Table_ID),
-		 	),
-		 	'pagination'=>array(
-		 		'pageSize'=>10,
-		 	),
-		 ));    /* END CUSTOM */
-		
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
-			/* METALICIOUS CUSTOM: ADD THE CHILD-LIST DATA PROVIDER TO THE ARRAY OF PROVIDERS ACCEPTED BY RENDER(). */
-			'variableDataProvider'=>$variableDataProvider,
 		));
 	}
 

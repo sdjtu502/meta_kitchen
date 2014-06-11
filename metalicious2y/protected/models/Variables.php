@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "variables".
+ * This is the model class for table "Variables".
  *
- * The followings are the available columns in table 'variables':
+ * The followings are the available columns in table 'Variables':
  * @property integer $Variable_ID
  * @property string $Variable_Name
  * @property string $Variable_Description
@@ -18,11 +18,10 @@
  * @property integer $Views
  * @property string $Date_Created
  * @property string $Last_Updated
- * @property integer $Table_ID
+ * @property integer $Table_Id
  *
  * The followings are the available model relations:
  * @property TablesVariables[] $tablesVariables
- * @property Tables $table
  * @property VariablesRevisions[] $variablesRevisions
  */
 class Variables extends CActiveRecord
@@ -32,7 +31,7 @@ class Variables extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'variables';
+		return 'Variables';
 	}
 
 	/**
@@ -44,7 +43,7 @@ class Variables extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('Variable_Name, Variable_Description, Variable_Type_Format, Variable_Length, Variable_Values, Variable_Example, Variable_Comments, Creator', 'required'),
-			array('Public, Creator, Views, Table_ID', 'numerical', 'integerOnly'=>true),
+			array('Public, Creator, Views, Table_Id', 'numerical', 'integerOnly'=>true),
 			array('Variable_Name, Variable_Type_Format, Variable_Length', 'length', 'max'=>100),
 			array('Variable_Description, Variable_Example, Variable_Comments', 'length', 'max'=>1000),
 			array('Variable_Values', 'length', 'max'=>3000),
@@ -52,7 +51,7 @@ class Variables extends CActiveRecord
 			array('Date_Created, Last_Updated', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('Variable_ID, Variable_Name, Variable_Description, Variable_Type_Format, Variable_Length, Variable_Values, Variable_Example, Variable_Comments, Data_Portal, Public, Creator, Views, Date_Created, Last_Updated, Table_ID', 'safe', 'on'=>'search'),
+			array('Variable_ID, Variable_Name, Variable_Description, Variable_Type_Format, Variable_Length, Variable_Values, Variable_Example, Variable_Comments, Data_Portal, Public, Creator, Views, Date_Created, Last_Updated, Table_Id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,7 +64,6 @@ class Variables extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'tablesVariables' => array(self::HAS_MANY, 'TablesVariables', 'Variable_ID'),
-			'table' => array(self::BELONGS_TO, 'Tables', 'Table_ID'),
 			'variablesRevisions' => array(self::HAS_MANY, 'VariablesRevisions', 'Variable_ID'),
 		);
 	}
@@ -90,7 +88,7 @@ class Variables extends CActiveRecord
 			'Views' => 'Views',
 			'Date_Created' => 'Date Created',
 			'Last_Updated' => 'Last Updated',
-			'Table_ID' => 'Table',
+			'Table_Id' => 'Table',
 		);
 	}
 
@@ -126,7 +124,7 @@ class Variables extends CActiveRecord
 		$criteria->compare('Views',$this->Views);
 		$criteria->compare('Date_Created',$this->Date_Created,true);
 		$criteria->compare('Last_Updated',$this->Last_Updated,true);
-		$criteria->compare('Table_ID',$this->Table_ID);
+		$criteria->compare('Table_Id',$this->Table_Id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
