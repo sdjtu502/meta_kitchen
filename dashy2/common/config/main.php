@@ -10,7 +10,7 @@ return [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=metadash',
             'username' => 'root',
-            'password' => 'CHRoot1313!',
+            'password' => 'mysql_admin',
             'charset' => 'utf8',
         ],    ],
 ];
