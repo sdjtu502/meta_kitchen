@@ -14,17 +14,34 @@ use yii\filters\VerbFilter;
  */
 class DataReceiptController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+	public function behaviors()
+	{
+		return [
+			'access' => [
+				'class' => \yii\filters\AccessControl::className(),
+				'only' => ['create', 'update'],
+				'rules' => [
+					// deny all POST requests
+					[
+						'allow' => false,
+						'verbs' => ['POST']
+					],
+					// allow authenticated users
+					[
+						'allow' => true,
+						'roles' => ['@'],
+					],
+					// everything else is denied
+				],
+			],
+			//verbs' => [
+			//	'class' => VerbFilter::className(),
+			//	'actions' => [
+			//	'delete' => ['post'],
+			//	],
+			//],
+		];
+	}
 
     /**
      * Lists all DataReceipt models.
