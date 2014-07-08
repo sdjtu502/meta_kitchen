@@ -5,17 +5,17 @@ namespace frontend\models\search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\Datadict as DatadictModel;
+use frontend\models\Datadict;
 
 /**
- * Datadict represents the model behind the search form about `frontend\models\Datadict`.
+ * DatadictSearch represents the model behind the search form about `frontend\models\Datadict`.
  */
-class Datadict extends DatadictModel
+class DatadictSearch extends Datadict
 {
     public function rules()
     {
         return [
-            [['datadict_name', 'datadict_types', 'file_location', 'file_type', 'comments', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
+            [['datadict_name', 'time_period', 'etl_stage', 'dict_file_name', 'dict_file_location', 'dict_file_type', 'data_file_name', 'data_file_location', 'data_file_type', 'datadict_types', 'comments', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
             [['exclude', 'delete_row'], 'boolean'],
             [['id'], 'integer'],
         ];
@@ -29,7 +29,7 @@ class Datadict extends DatadictModel
 
     public function search($params)
     {
-        $query = DatadictModel::find();
+        $query = Datadict::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -48,9 +48,15 @@ class Datadict extends DatadictModel
         ]);
 
         $query->andFilterWhere(['like', 'datadict_name', $this->datadict_name])
+            ->andFilterWhere(['like', 'time_period', $this->time_period])
+            ->andFilterWhere(['like', 'etl_stage', $this->etl_stage])
+            ->andFilterWhere(['like', 'dict_file_name', $this->dict_file_name])
+            ->andFilterWhere(['like', 'dict_file_location', $this->dict_file_location])
+            ->andFilterWhere(['like', 'dict_file_type', $this->dict_file_type])
+            ->andFilterWhere(['like', 'data_file_name', $this->data_file_name])
+            ->andFilterWhere(['like', 'data_file_location', $this->data_file_location])
+            ->andFilterWhere(['like', 'data_file_type', $this->data_file_type])
             ->andFilterWhere(['like', 'datadict_types', $this->datadict_types])
-            ->andFilterWhere(['like', 'file_location', $this->file_location])
-            ->andFilterWhere(['like', 'file_type', $this->file_type])
             ->andFilterWhere(['like', 'comments', $this->comments])
             ->andFilterWhere(['like', 'creator', $this->creator])
             ->andFilterWhere(['like', 'update_user', $this->update_user])

@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var frontend\models\search\Datadict $searchModel
+ * @var frontend\models\search\DatadictSearch $searchModel
  */
 
 $this->title = Yii::t('app', 'Datadicts');
@@ -31,10 +31,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'datadict_name',
-            'datadict_types',
-            'file_location',
-            'file_type',
-            'comments',
+            'time_period',
+            'etl_stage',
+            'dict_file_name',
+            'dict_file_location',
+            // 'dict_file_type',
+            // 'data_file_name',
+            // 'data_file_location',
+            // 'data_file_type',
+            // 'datadict_types',
+            // 'comments',
             // 'date_created',
             // 'creator',
             // 'last_updated',

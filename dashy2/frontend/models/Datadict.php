@@ -8,9 +8,15 @@ use Yii;
  * This is the model class for table "datadict".
  *
  * @property string $datadict_name
+ * @property string $time_period
+ * @property string $etl_stage
+ * @property string $dict_file_name
+ * @property string $dict_file_location
+ * @property string $dict_file_type
+ * @property string $data_file_name
+ * @property string $data_file_location
+ * @property string $data_file_type
  * @property string $datadict_types
- * @property string $file_location
- * @property string $file_type
  * @property string $comments
  * @property string $date_created
  * @property string $creator
@@ -43,8 +49,9 @@ class Datadict extends \yii\db\ActiveRecord
             [['date_created', 'last_updated'], 'safe'],
             [['exclude', 'delete_row'], 'boolean'],
             [['datadict_name', 'datadict_types'], 'string', 'max' => 50],
-            [['file_location'], 'string', 'max' => 200],
-            [['file_type', 'creator', 'update_user'], 'string', 'max' => 20],
+            [['time_period', 'dict_file_type', 'data_file_type', 'creator', 'update_user'], 'string', 'max' => 20],
+            [['etl_stage', 'dict_file_name', 'data_file_name'], 'string', 'max' => 100],
+            [['dict_file_location', 'data_file_location'], 'string', 'max' => 300],
             [['comments'], 'string', 'max' => 1000],
             [['rowsource'], 'string', 'max' => 12],
             [['hubid', 'orgid', 'projid'], 'string', 'max' => 10]
@@ -58,9 +65,15 @@ class Datadict extends \yii\db\ActiveRecord
     {
         return [
             'datadict_name' => Yii::t('app', 'Datadict Name'),
+            'time_period' => Yii::t('app', 'Time Period'),
+            'etl_stage' => Yii::t('app', 'Etl Stage'),
+            'dict_file_name' => Yii::t('app', 'Dict File Name'),
+            'dict_file_location' => Yii::t('app', 'Dict File Location'),
+            'dict_file_type' => Yii::t('app', 'Dict File Type'),
+            'data_file_name' => Yii::t('app', 'Data File Name'),
+            'data_file_location' => Yii::t('app', 'Data File Location'),
+            'data_file_type' => Yii::t('app', 'Data File Type'),
             'datadict_types' => Yii::t('app', 'Datadict Types'),
-            'file_location' => Yii::t('app', 'File Location'),
-            'file_type' => Yii::t('app', 'File Type'),
             'comments' => Yii::t('app', 'Comments'),
             'date_created' => Yii::t('app', 'Date Created'),
             'creator' => Yii::t('app', 'Creator'),

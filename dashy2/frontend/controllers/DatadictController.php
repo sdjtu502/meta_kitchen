@@ -4,7 +4,7 @@ namespace frontend\controllers;
 
 use Yii;
 use frontend\models\Datadict;
-use frontend\models\search\Datadict as DatadictSearch;
+use frontend\models\search\DatadictSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

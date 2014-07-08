@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 
 /**
  * @var yii\web\View $this
- * @var frontend\models\search\Datadict $model
+ * @var frontend\models\search\DatadictSearch $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>
@@ -19,13 +19,25 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'datadict_name') ?>
 
-    <?= $form->field($model, 'datadict_types') ?>
+    <?= $form->field($model, 'time_period') ?>
 
-    <?= $form->field($model, 'file_location') ?>
+    <?= $form->field($model, 'etl_stage') ?>
 
-    <?= $form->field($model, 'file_type') ?>
+    <?= $form->field($model, 'dict_file_name') ?>
 
-    <?= $form->field($model, 'comments') ?>
+    <?= $form->field($model, 'dict_file_location') ?>
+
+    <?php // echo $form->field($model, 'dict_file_type') ?>
+
+    <?php // echo $form->field($model, 'data_file_name') ?>
+
+    <?php // echo $form->field($model, 'data_file_location') ?>
+
+    <?php // echo $form->field($model, 'data_file_type') ?>
+
+    <?php // echo $form->field($model, 'datadict_types') ?>
+
+    <?php // echo $form->field($model, 'comments') ?>
 
     <?php // echo $form->field($model, 'date_created') ?>
 

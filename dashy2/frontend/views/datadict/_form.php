@@ -26,13 +26,25 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'datadict_types')->textInput(['maxlength' => 50]) ?>
 
-    <?= $form->field($model, 'file_location')->textInput(['maxlength' => 200]) ?>
+    <?= $form->field($model, 'time_period')->textInput(['maxlength' => 20]) ?>
 
-    <?= $form->field($model, 'file_type')->textInput(['maxlength' => 20]) ?>
+    <?= $form->field($model, 'dict_file_type')->textInput(['maxlength' => 20]) ?>
+
+    <?= $form->field($model, 'data_file_type')->textInput(['maxlength' => 20]) ?>
 
     <?= $form->field($model, 'creator')->textInput(['maxlength' => 20]) ?>
 
     <?= $form->field($model, 'update_user')->textInput(['maxlength' => 20]) ?>
+
+    <?= $form->field($model, 'etl_stage')->textInput(['maxlength' => 100]) ?>
+
+    <?= $form->field($model, 'dict_file_name')->textInput(['maxlength' => 100]) ?>
+
+    <?= $form->field($model, 'data_file_name')->textInput(['maxlength' => 100]) ?>
+
+    <?= $form->field($model, 'dict_file_location')->textInput(['maxlength' => 300]) ?>
+
+    <?= $form->field($model, 'data_file_location')->textInput(['maxlength' => 300]) ?>
 
     <?= $form->field($model, 'comments')->textInput(['maxlength' => 1000]) ?>
 
