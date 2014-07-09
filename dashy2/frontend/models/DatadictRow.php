@@ -10,8 +10,8 @@ use Yii;
  * @property string $column_name
  * @property integer $start_pos
  * @property integer $width
- * @property string $data_format
  * @property string $unique_id_yn
+ * @property string $data_format
  * @property string $description
  * @property string $comments
  * @property integer $rownum
@@ -21,6 +21,7 @@ use Yii;
  * @property string $load_from_function
  * @property string $function_to_load_from
  * @property integer $datadict_id
+ * @property string $field_reference
  * @property string $date_created
  * @property string $creator
  * @property string $last_updated
@@ -53,8 +54,8 @@ class DatadictRow extends \yii\db\ActiveRecord
             [['date_created', 'last_updated'], 'safe'],
             [['exclude', 'delete_row'], 'boolean'],
             [['column_name', 'function_to_load_from'], 'string', 'max' => 50],
-            [['data_format', 'creator', 'update_user'], 'string', 'max' => 20],
             [['unique_id_yn', 'matchfield_yn', 'in_match_result', 'load_from_function'], 'string', 'max' => 1],
+            [['data_format', 'field_reference', 'creator', 'update_user'], 'string', 'max' => 20],
             [['description', 'comments'], 'string', 'max' => 1000],
             [['bigmatch_type'], 'string', 'max' => 6],
             [['rowsource'], 'string', 'max' => 12],
@@ -71,8 +72,8 @@ class DatadictRow extends \yii\db\ActiveRecord
             'column_name' => Yii::t('app', 'Column Name'),
             'start_pos' => Yii::t('app', 'Start Pos'),
             'width' => Yii::t('app', 'Width'),
-            'data_format' => Yii::t('app', 'Data Format'),
             'unique_id_yn' => Yii::t('app', 'Unique Id Yn'),
+            'data_format' => Yii::t('app', 'Data Format'),
             'description' => Yii::t('app', 'Description'),
             'comments' => Yii::t('app', 'Comments'),
             'rownum' => Yii::t('app', 'Rownum'),
@@ -82,6 +83,7 @@ class DatadictRow extends \yii\db\ActiveRecord
             'load_from_function' => Yii::t('app', 'Load From Function'),
             'function_to_load_from' => Yii::t('app', 'Function To Load From'),
             'datadict_id' => Yii::t('app', 'Datadict ID'),
+            'field_reference' => Yii::t('app', 'Field Reference'),
             'date_created' => Yii::t('app', 'Date Created'),
             'creator' => Yii::t('app', 'Creator'),
             'last_updated' => Yii::t('app', 'Last Updated'),

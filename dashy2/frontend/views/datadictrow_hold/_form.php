@@ -22,18 +22,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'data_format')->textInput(['maxlength' => 20]) ?>
 
+    <?= $form->field($model, 'unique_id_yn')->textInput(['maxlength' => 1]) ?>
+
     <?= $form->field($model, 'description')->textInput(['maxlength' => 1000]) ?>
 
     <?= $form->field($model, 'comments')->textInput(['maxlength' => 1000]) ?>
 
-    <?= $form->field($model, 'field_reference')->textInput(['maxlength' => 20]) ?>
-	
     <?= $form->field($model, 'rownum')->textInput() ?>
 
-    <?= $form->field($model, 'unique_id_yn')->textInput(['maxlength' => 1]) ?>
-
     <?= $form->field($model, 'datadict_id')->textInput() ?>
-
+	
+    <?= $form->field($model, 'field_reference')->textInput() ?>
+	
 	<!--
     <?= $form->field($model, 'bigmatch_type')->textInput(['maxlength' => 6]) ?>
 
@@ -64,7 +64,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'orgid')->textInput(['maxlength' => 10]) ?>
 
     <?= $form->field($model, 'projid')->textInput(['maxlength' => 10]) ?>
-	-->
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

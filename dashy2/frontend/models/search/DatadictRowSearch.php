@@ -15,7 +15,7 @@ class DatadictRowSearch extends DatadictRow
     public function rules()
     {
         return [
-            [['column_name', 'data_format', 'unique_id_yn', 'description', 'comments', 'bigmatch_type', 'matchfield_yn', 'in_match_result', 'load_from_function', 'function_to_load_from', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
+            [['column_name', 'unique_id_yn', 'data_format', 'description', 'comments', 'bigmatch_type', 'matchfield_yn', 'in_match_result', 'load_from_function', 'function_to_load_from', 'field_reference', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
             [['start_pos', 'width', 'rownum', 'datadict_id', 'id'], 'integer'],
             [['exclude', 'delete_row'], 'boolean'],
         ];
@@ -52,8 +52,8 @@ class DatadictRowSearch extends DatadictRow
         ]);
 
         $query->andFilterWhere(['like', 'column_name', $this->column_name])
-            ->andFilterWhere(['like', 'data_format', $this->data_format])
             ->andFilterWhere(['like', 'unique_id_yn', $this->unique_id_yn])
+            ->andFilterWhere(['like', 'data_format', $this->data_format])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'comments', $this->comments])
             ->andFilterWhere(['like', 'bigmatch_type', $this->bigmatch_type])
@@ -61,6 +61,7 @@ class DatadictRowSearch extends DatadictRow
             ->andFilterWhere(['like', 'in_match_result', $this->in_match_result])
             ->andFilterWhere(['like', 'load_from_function', $this->load_from_function])
             ->andFilterWhere(['like', 'function_to_load_from', $this->function_to_load_from])
+            ->andFilterWhere(['like', 'field_reference', $this->field_reference])
             ->andFilterWhere(['like', 'creator', $this->creator])
             ->andFilterWhere(['like', 'update_user', $this->update_user])
             ->andFilterWhere(['like', 'rowsource', $this->rowsource])

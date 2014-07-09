@@ -10,7 +10,7 @@ use Yii;
  * @property string $datadict_name
  * @property string $time_period
  * @property string $data_set_abbrev
- * @property string data_set
+ * @property integer $data_set
  * @property string $etl_stage
  * @property string $dict_file_name
  * @property string $dict_file_location

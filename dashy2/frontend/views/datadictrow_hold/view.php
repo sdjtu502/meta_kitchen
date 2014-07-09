@@ -55,7 +55,8 @@ $this->params['breadcrumbs'][] = $this->title;
             //'hubid',
             //'orgid',
             //'projid',
-            'id',        ],
+            'id',
+        ],
     ]) ?>
 
 </div>
