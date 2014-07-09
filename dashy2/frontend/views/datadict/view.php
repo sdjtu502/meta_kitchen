@@ -32,6 +32,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'datadict_name',
             'time_period',
+			'data_set_abbrev',
+			'data_set',
             'etl_stage',
             'dict_file_name',
             'dict_file_location',

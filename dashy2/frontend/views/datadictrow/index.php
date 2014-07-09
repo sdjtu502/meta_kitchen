@@ -29,7 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'column_name',
             'start_pos',
             'width',
@@ -43,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'in_match_result',
             // 'load_from_function',
             // 'function_to_load_from',
-            // 'datadict_id',
+            'datadict_id',
             // 'date_created',
             // 'creator',
             // 'last_updated',

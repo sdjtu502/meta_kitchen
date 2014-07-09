@@ -15,7 +15,7 @@ class DatadictSearch extends Datadict
     public function rules()
     {
         return [
-            [['datadict_name', 'time_period', 'etl_stage', 'dict_file_name', 'dict_file_location', 'dict_file_type', 'data_file_name', 'data_file_location', 'data_file_type', 'datadict_types', 'comments', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
+            [['datadict_name', 'time_period', 'data_set_abbrev', 'data_set', 'etl_stage', 'dict_file_name', 'dict_file_location', 'dict_file_type', 'data_file_name', 'data_file_location', 'data_file_type', 'datadict_types', 'comments', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
             [['exclude', 'delete_row'], 'boolean'],
             [['id'], 'integer'],
         ];
@@ -49,6 +49,8 @@ class DatadictSearch extends Datadict
 
         $query->andFilterWhere(['like', 'datadict_name', $this->datadict_name])
             ->andFilterWhere(['like', 'time_period', $this->time_period])
+            ->andFilterWhere(['like', 'data_set_abbrev', $this->data_set_abbrev])
+            ->andFilterWhere(['like', 'data_set', $this->data_set])
             ->andFilterWhere(['like', 'etl_stage', $this->etl_stage])
             ->andFilterWhere(['like', 'dict_file_name', $this->dict_file_name])
             ->andFilterWhere(['like', 'dict_file_location', $this->dict_file_location])

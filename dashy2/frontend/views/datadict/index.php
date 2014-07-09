@@ -29,12 +29,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'datadict_name',
             'time_period',
-            'etl_stage',
-            'dict_file_name',
-            'dict_file_location',
+            'data_set_abbrev',
+            // 'data_set',			
+            // 'etl_stage',
+            // 'dict_file_name',
+            // 'dict_file_location',
             // 'dict_file_type',
             // 'data_file_name',
             // 'data_file_location',
