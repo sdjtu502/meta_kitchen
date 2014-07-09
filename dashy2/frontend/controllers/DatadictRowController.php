@@ -23,6 +23,25 @@ class DatadictRowController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+
+			'access' => [
+				'class' => \yii\filters\AccessControl::className(),
+				'only' => ['create', 'update'],
+				'rules' => [
+					// deny all POST requests
+					//[
+					//	'allow' => false,
+					//	'verbs' => ['POST']
+					//],
+					// allow authenticated users
+					[
+						'allow' => true,
+						'roles' => ['@'],
+					],
+					// everything else is denied
+				],
+			],
+			
         ];
     }
 

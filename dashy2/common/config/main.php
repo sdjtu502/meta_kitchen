@@ -12,5 +12,10 @@ return [
             'username' => 'root',
             'password' => 'CHRoot1313!',
             'charset' => 'utf8',
-        ],    ],
+        ],    
+		//GMS CUSTOM See http://www.yiiframework.com/doc-2.0/guide-authorization.html
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+        ],		
+	],
 ];
