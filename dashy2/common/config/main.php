@@ -13,7 +13,7 @@ return [
             'password' => 'CHRoot1313!',
             'charset' => 'utf8',
         ],    
-		//GMS CUSTOM See http://www.yiiframework.com/doc-2.0/guide-authorization.html
+		//GMS CUSTOM As per http://www.yiiframework.com/doc-2.0/guide-authorization.html  --OR-- https://github.com/yiisoft/yii2/blob/master/docs/guide/security-authorization.md
         'authManager' => [
             'class' => 'yii\rbac\PhpManager',
         ],		
