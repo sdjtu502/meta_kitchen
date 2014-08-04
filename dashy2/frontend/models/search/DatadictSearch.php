@@ -15,9 +15,9 @@ class DatadictSearch extends Datadict
     public function rules()
     {
         return [
-            [['datadict_name', 'time_period', 'data_set_abbrev', 'data_set', 'etl_stage', 'dict_file_name', 'dict_file_location', 'dict_file_type', 'data_file_name', 'data_file_location', 'data_file_type', 'datadict_types', 'comments', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
+            [['datadict_name', 'time_period', 'etl_stage', 'source_data_table', 'dataset_abbrev', 'dict_file_name', 'dict_file_location', 'dict_file_type', 'data_file_name', 'data_file_location', 'data_file_type', 'datadict_types', 'comments', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
+            [['dataset', 'id'], 'integer'],
             [['exclude', 'delete_row'], 'boolean'],
-            [['id'], 'integer'],
         ];
     }
 
@@ -40,6 +40,7 @@ class DatadictSearch extends Datadict
         }
 
         $query->andFilterWhere([
+            'dataset' => $this->dataset,
             'date_created' => $this->date_created,
             'last_updated' => $this->last_updated,
             'exclude' => $this->exclude,
@@ -49,9 +50,9 @@ class DatadictSearch extends Datadict
 
         $query->andFilterWhere(['like', 'datadict_name', $this->datadict_name])
             ->andFilterWhere(['like', 'time_period', $this->time_period])
-            ->andFilterWhere(['like', 'data_set_abbrev', $this->data_set_abbrev])
-            ->andFilterWhere(['like', 'data_set', $this->data_set])
             ->andFilterWhere(['like', 'etl_stage', $this->etl_stage])
+            ->andFilterWhere(['like', 'source_data_table', $this->source_data_table])
+            ->andFilterWhere(['like', 'dataset_abbrev', $this->dataset_abbrev])
             ->andFilterWhere(['like', 'dict_file_name', $this->dict_file_name])
             ->andFilterWhere(['like', 'dict_file_location', $this->dict_file_location])
             ->andFilterWhere(['like', 'dict_file_type', $this->dict_file_type])

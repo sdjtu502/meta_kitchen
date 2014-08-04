@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
             're_request_date',
             'category',
             'subcategory',
-            // 'data_set_abbrev',
+            'data_set_abbrev',
             // 'data_set',
             // 'data_source',
             // 'comments',

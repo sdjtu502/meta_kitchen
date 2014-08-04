@@ -9,9 +9,10 @@ use Yii;
  *
  * @property string $datadict_name
  * @property string $time_period
- * @property string $data_set_abbrev
- * @property integer $data_set
  * @property string $etl_stage
+ * @property string $source_data_table
+ * @property integer $dataset
+ * @property string $dataset_abbrev
  * @property string $dict_file_name
  * @property string $dict_file_location
  * @property string $dict_file_type
@@ -48,11 +49,13 @@ class Datadict extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['dataset'], 'integer'],
             [['date_created', 'last_updated'], 'safe'],
             [['exclude', 'delete_row'], 'boolean'],
             [['datadict_name', 'datadict_types'], 'string', 'max' => 50],
-            [['time_period', 'data_set_abbrev', 'dict_file_type', 'data_file_type', 'creator', 'update_user'], 'string', 'max' => 20],
+            [['time_period', 'dataset_abbrev', 'dict_file_type', 'data_file_type', 'creator', 'update_user'], 'string', 'max' => 20],
             [['etl_stage', 'dict_file_name', 'data_file_name'], 'string', 'max' => 100],
+            [['source_data_table'], 'string', 'max' => 120],
             [['dict_file_location', 'data_file_location'], 'string', 'max' => 300],
             [['comments'], 'string', 'max' => 1000],
             [['rowsource'], 'string', 'max' => 12],
@@ -68,9 +71,10 @@ class Datadict extends \yii\db\ActiveRecord
         return [
             'datadict_name' => Yii::t('app', 'Datadict Name'),
             'time_period' => Yii::t('app', 'Time Period'),
-			'data_set_abbrev' => Yii::t('app', 'Data Set Abbrev'),
-			'data_set' => Yii::t('app', 'Data Set ID'),
             'etl_stage' => Yii::t('app', 'Etl Stage'),
+            'source_data_table' => Yii::t('app', 'Source Data Table'),
+            'dataset' => Yii::t('app', 'Dataset'),
+            'dataset_abbrev' => Yii::t('app', 'Dataset Abbrev'),
             'dict_file_name' => Yii::t('app', 'Dict File Name'),
             'dict_file_location' => Yii::t('app', 'Dict File Location'),
             'dict_file_type' => Yii::t('app', 'Dict File Type'),
@@ -92,4 +96,11 @@ class Datadict extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
         ];
     }
+
+	//GMS CHAPIN HALL CUSTOM - fetch DataDictRows and other items associated with this DataDict
+    public function getDataDictRows()
+	{
+        return $this->hasMany(dataDictrow::className(), ['datadict_name' => 'datadict_name']);
+	}
+
 }

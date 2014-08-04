@@ -20,16 +20,18 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'datadict_name') ?>
 
     <?= $form->field($model, 'time_period') ?>
-	
-    <?= $form->field($model, 'data_set_abbrev') ?>
-	
-    <?= $form->field($model, 'data_set') ?>
-	
+
     <?= $form->field($model, 'etl_stage') ?>
 
-    <?= $form->field($model, 'dict_file_name') ?>
+    <?= $form->field($model, 'source_data_table') ?>
 
-    <?= $form->field($model, 'dict_file_location') ?>
+    <?= $form->field($model, 'dataset') ?>
+
+    <?php // echo $form->field($model, 'dataset_abbrev') ?>
+
+    <?php // echo $form->field($model, 'dict_file_name') ?>
+
+    <?php // echo $form->field($model, 'dict_file_location') ?>
 
     <?php // echo $form->field($model, 'dict_file_type') ?>
 

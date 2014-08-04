@@ -23,15 +23,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'width') ?>
 
-    <?= $form->field($model, 'data_format') ?>
-
     <?= $form->field($model, 'unique_id_yn') ?>
-	
-    <?= $form->field($model, 'field_reference') ?>
+
+    <?= $form->field($model, 'data_format') ?>
 
     <?php // echo $form->field($model, 'description') ?>
 
     <?php // echo $form->field($model, 'comments') ?>
+
+    <?php // echo $form->field($model, 'reference_field') ?>
 
     <?php // echo $form->field($model, 'rownum') ?>
 
@@ -46,6 +46,12 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'function_to_load_from') ?>
 
     <?php // echo $form->field($model, 'datadict_id') ?>
+
+    <?php // echo $form->field($model, 'datadict_name') ?>
+
+    <?php // echo $form->field($model, 'dataset') ?>
+
+    <?php // echo $form->field($model, 'dataset_abbrev') ?>
 
     <?php // echo $form->field($model, 'date_created') ?>
 

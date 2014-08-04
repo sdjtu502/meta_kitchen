@@ -62,6 +62,7 @@ AppAsset::register($this);
 			       array( 'label' => 'Data Set', 'url' => 'index.php?r=dataset/index#' ), 
 			       array( 'label' => 'Data Request (outbound)', 'url' => 'index.php?r=outbounddatarequest/index#' ), 
 			       array( 'label' => 'Data Receipt', 'url' => 'index.php?r=datareceipt/index#' ),
+			       array( 'label' => 'Data Dictionary', 'url' => 'index.php?r=datadict/index#' ),
 			     ),
 			   ), 
 			  ), 
@@ -81,7 +82,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Chapin Hall <?= date('Y') ?></p>   <!-- CHAPIN HALL CUSTOM -->
         <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>

@@ -213,4 +213,20 @@ class DataSet extends \yii\db\ActiveRecord
     {
         return $this->hasMany(DataSetXRequest::className(), ['dataset_id' => 'id']);
     }
+
+	//GMS CHAPIN HALL CUSTOM - fetch DataRequests, DataReceipts, DataDicts and other items associated with this DataSet
+    public function getDataReceipts()
+	{
+		//$datareceipts = DataReceipt::find()->select(['data_received', 'export_date'])->with('OutboundDataRequests')->all();
+        return $this->hasMany(DataReceipt::className(), ['data_set_abbrev' => 'data_set_abbrev']);
+	}
+    public function getDataDicts()
+	{
+        return $this->hasMany(Datadict::className(), ['dataset_abbrev' => 'data_set_abbrev']);
+	}
+    public function getOutboundDatarequests()
+	{
+        return $this->hasMany(OutboundDataRequest::className(), ['data_set_abbrev' => 'data_set_abbrev']);
+	}
+	
 }

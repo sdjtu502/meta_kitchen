@@ -16,9 +16,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'column_name')->textInput(['maxlength' => 50]) ?>
 
-    <?= $form->field($model, 'start_pos')->textInput() ?>
+    <?= $form->field($model, 'start_pos')->textInput(['maxlength' => 4]) ?>
 
-    <?= $form->field($model, 'width')->textInput() ?>
+    <?= $form->field($model, 'width')->textInput(['maxlength' => 4]) ?>
+
+    <?= $form->field($model, 'unique_id_yn')->textInput(['maxlength' => 1]) ?>
+
+    <?= $form->field($model, 'rownum')->textInput() ?>
 
     <?= $form->field($model, 'data_format')->textInput(['maxlength' => 20]) ?>
 
@@ -26,24 +30,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'comments')->textInput(['maxlength' => 1000]) ?>
 
-    <?= $form->field($model, 'field_reference')->textInput(['maxlength' => 20]) ?>
-	
-    <?= $form->field($model, 'rownum')->textInput() ?>
+    <?= $form->field($model, 'reference_field')->textInput(['maxlength' => 40]) ?>
 
-    <?= $form->field($model, 'unique_id_yn')->textInput(['maxlength' => 1]) ?>
+    <?= $form->field($model, 'datadict_name')->textInput(['maxlength' => 50]) ?>
 
-    <?= $form->field($model, 'datadict_id')->textInput() ?>
+    <?= $form->field($model, 'dataset_abbrev')->textInput(['maxlength' => 20]) ?>
 
 	<!--
     <?= $form->field($model, 'bigmatch_type')->textInput(['maxlength' => 6]) ?>
 
-    <?= $form->field($model, 'matchfield_yn')->textInput(['maxlength' => 1]) ?>
+    <?= $form->field($model, 'datadict_id')->textInput() ?>
 
-    <?= $form->field($model, 'in_match_result')->textInput(['maxlength' => 1]) ?>
-
-    <?= $form->field($model, 'load_from_function')->textInput(['maxlength' => 1]) ?>
-
-    <?= $form->field($model, 'function_to_load_from')->textInput(['maxlength' => 50]) ?>
+    <?= $form->field($model, 'dataset')->textInput() ?>
 
     <?= $form->field($model, 'date_created')->textInput() ?>
 
@@ -52,6 +50,14 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'exclude')->checkbox() ?>
 
     <?= $form->field($model, 'delete_row')->checkbox() ?>
+
+    <?= $form->field($model, 'function_to_load_from')->textInput(['maxlength' => 50]) ?>
+
+    <?= $form->field($model, 'matchfield_yn')->textInput(['maxlength' => 1]) ?>
+
+    <?= $form->field($model, 'in_match_result')->textInput(['maxlength' => 1]) ?>
+
+    <?= $form->field($model, 'load_from_function')->textInput(['maxlength' => 1]) ?>
 
     <?= $form->field($model, 'creator')->textInput(['maxlength' => 20]) ?>
 
@@ -65,7 +71,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'projid')->textInput(['maxlength' => 10]) ?>
 	-->
-
+	
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

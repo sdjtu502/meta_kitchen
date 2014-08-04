@@ -5,18 +5,18 @@ namespace frontend\models\search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\DatadictRow;
+use frontend\models\Datadict_row;
 
 /**
- * DatadictRowSearch represents the model behind the search form about `frontend\models\DatadictRow`.
+ * Datadict_row_search represents the model behind the search form about `frontend\models\Datadict_row`.
  */
-class DatadictRowSearch extends DatadictRow
+class Datadict_row_search extends Datadict_row
 {
     public function rules()
     {
         return [
-            [['column_name', 'start_pos', 'width', 'unique_id_yn', 'data_format', 'description', 'comments', 'reference_field', 'bigmatch_type', 'matchfield_yn', 'in_match_result', 'load_from_function', 'function_to_load_from', 'datadict_name', 'dataset_abbrev', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
-            [['rownum', 'datadict_id', 'dataset', 'id'], 'integer'],
+            [['column_name', 'start_pos', 'width', 'unique_id_yn', 'data_format', 'description', 'comments', 'bigmatch_type', 'matchfield_yn', 'in_match_result', 'load_from_function', 'function_to_load_from', 'date_created', 'creator', 'last_updated', 'update_user', 'rowsource', 'hubid', 'orgid', 'projid'], 'safe'],
+            [['rownum', 'datadict_id', 'id'], 'integer'],
             [['exclude', 'delete_row'], 'boolean'],
         ];
     }
@@ -29,7 +29,7 @@ class DatadictRowSearch extends DatadictRow
 
     public function search($params)
     {
-        $query = DatadictRow::find();
+        $query = Datadict_row::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -42,7 +42,6 @@ class DatadictRowSearch extends DatadictRow
         $query->andFilterWhere([
             'rownum' => $this->rownum,
             'datadict_id' => $this->datadict_id,
-            'dataset' => $this->dataset,
             'date_created' => $this->date_created,
             'last_updated' => $this->last_updated,
             'exclude' => $this->exclude,
@@ -57,14 +56,11 @@ class DatadictRowSearch extends DatadictRow
             ->andFilterWhere(['like', 'data_format', $this->data_format])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'comments', $this->comments])
-            ->andFilterWhere(['like', 'reference_field', $this->reference_field])
             ->andFilterWhere(['like', 'bigmatch_type', $this->bigmatch_type])
             ->andFilterWhere(['like', 'matchfield_yn', $this->matchfield_yn])
             ->andFilterWhere(['like', 'in_match_result', $this->in_match_result])
             ->andFilterWhere(['like', 'load_from_function', $this->load_from_function])
             ->andFilterWhere(['like', 'function_to_load_from', $this->function_to_load_from])
-            ->andFilterWhere(['like', 'datadict_name', $this->datadict_name])
-            ->andFilterWhere(['like', 'dataset_abbrev', $this->dataset_abbrev])
             ->andFilterWhere(['like', 'creator', $this->creator])
             ->andFilterWhere(['like', 'update_user', $this->update_user])
             ->andFilterWhere(['like', 'rowsource', $this->rowsource])

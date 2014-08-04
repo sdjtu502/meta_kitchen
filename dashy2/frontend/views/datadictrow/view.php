@@ -8,7 +8,8 @@ use yii\widgets\DetailView;
  * @var frontend\models\DatadictRow $model
  */
 
-$this->title = $model->id;
+//GMS CHAPIN HALL CUSTOM $this->title = $model->id;  //DIsplay Column Name as title, not ID.
+$this->title = $model->column_name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Datadict Rows'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -35,16 +36,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'width',
             'data_format',
             'unique_id_yn',
+            'reference_field',
             'description',
             'comments',
             'rownum',
-            'datadict_id',
-			'field_reference',
             //'bigmatch_type',
             //'matchfield_yn',
             //'in_match_result',
             //'load_from_function',
             //'function_to_load_from',
+            //'datadict_id',
+            'datadict_name',
+            //'dataset',
+            'dataset_abbrev',
             //'date_created',
             //'creator',
             //'last_updated',
@@ -55,7 +59,8 @@ $this->params['breadcrumbs'][] = $this->title;
             //'hubid',
             //'orgid',
             //'projid',
-            'id',        ],
+            //'id',
+        ],
     ]) ?>
 
 </div>
