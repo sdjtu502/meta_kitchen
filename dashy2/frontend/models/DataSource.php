@@ -88,4 +88,12 @@ class DataSource extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
         ];
     }
+
+	//GMS CHAPIN HALL CUSTOM - fetch DataSets and other items associated with this DataSource
+    public function getDataSets()
+	{
+        return $this->hasMany(DataSet::className(), ['data_source_abbrev' => 'data_source_abbrev']);
+	}
+
+
 }
