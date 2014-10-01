@@ -103,65 +103,72 @@ $this->params['breadcrumbs'][] = $this->title;
 	//GMS CHAPIN HALL CUSTOM - fetch DataRequests, DataReceipts, DataDicts and other items associated with this DataSet
 
 	//OUTBOUND DATA REQUESTS
-	echo "<h2>Outbound Data Requests related to this data set</h2>";
-	echo "<table id='datadict' name='datadict' border=0 cellpadding=5>";
-	for ($i = 0; $i < count($model->outboundDatarequests); $i++) 
-	{
-        $data_requested = (string)$model->outboundDatarequests[$i]["data_requested"];
-		$detail_url = "index.php?r=outbounddatarequest/view&id=" . (string)$model->outboundDatarequests[$i]["id"];
-		echo "<tr>";
-		//echo "<td bgcolor=MediumAquaMarine><font face=arial size=2 color=DarkSlateGray>" . (string)$model->outboundDatarequests[$i]["data_requested"] . "</td>";
-		if(empty($data_requested) or empty($detail_url)){              //If incomplete information, don't attempt to display a live URL
-			echo "<td bgcolor=MediumAquaMarine><font face=arial size=2 color=DarkSlateGray>" . (string)$model->outboundDatarequests[$i]["data_requested"] . "</font></td>";
-		} else {                                                       //If complete information, display a live URL
-			echo "<td bgcolor=MediumAquaMarine><a href='" . $detail_url . "'><font face=arial size=2 color=darkblue>" . (string)$model->outboundDatarequests[$i]["data_requested"] . "</a></font></td>";
-		}
-		echo "<td bgcolor=MediumAquaMarine><font face=arial size=2 color=DarkSlateGray>" . (string)$model->outboundDatarequests[$i]["request_date"] . "</font></td>";
-		echo "</tr>";
-	}	
-	echo "</table>";
-	echo "<br />";
+	if(count($model->outboundDatarequests)){
+		echo "<h2>Outbound Data Requests related to this data set</h2>";
+		echo "<table id='datadict' name='datadict' border=0 cellpadding=5>";
+		for ($i = 0; $i < count($model->outboundDatarequests); $i++) 
+		{
+			$data_requested = (string)$model->outboundDatarequests[$i]["data_requested"];
+			$detail_url = "index.php?r=outbounddatarequest/view&id=" . (string)$model->outboundDatarequests[$i]["id"];
+			echo "<tr>";
+			//echo "<td bgcolor=MediumAquaMarine><font face=arial size=2 color=DarkSlateGray>" . (string)$model->outboundDatarequests[$i]["data_requested"] . "</td>";
+			if(empty($data_requested) or empty($detail_url)){              //If incomplete information, don't attempt to display a live URL
+				echo "<td bgcolor=MediumAquaMarine><font face=arial size=2 color=DarkSlateGray>" . (string)$model->outboundDatarequests[$i]["data_requested"] . "</font></td>";
+			} else {                                                       //If complete information, display a live URL
+				echo "<td bgcolor=MediumAquaMarine><a href='" . $detail_url . "'><font face=arial size=2 color=darkblue>" . (string)$model->outboundDatarequests[$i]["data_requested"] . "</a></font></td>";
+			}
+			echo "<td bgcolor=MediumAquaMarine><font face=arial size=2 color=DarkSlateGray>" . (string)$model->outboundDatarequests[$i]["request_date"] . "</font></td>";
+			echo "</tr>";
+		}	
+		echo "</table>";
+		echo "<br />";
+	}
 	
 	//DATA RECEIPTS
 	/* $childrows = $model->dataReceipts; */
 	//var_dump($model->dataReceipts);
-	echo "<h2>Data receipts related to this data set</h2>";
-	echo "<table id='datareceipt' name='datareceipt' border=0 cellpadding=5>";
-	for ($i = 0; $i < count($model->dataReceipts); $i++) 
-	{
-        $data_requested = (string)$model->dataReceipts[$i]["data_received"];
-		$detail_url = (string)$model->dataReceipts[$i]["detail_url"];
-		echo "<tr>";
-		echo "<td bgcolor=darkseagreen><font face=arial size=2 color=DarkSlateGray>" . (string)$model->dataReceipts[$i]["data_source_abbrev"] . "</td>";
-		if(empty($data_requested) or empty($detail_url)){              //If incomplete information, don't attempt to display a live URL
-			echo "<td bgcolor=darkseagreen><font face=arial size=2 color=DarkSlateGray>" . (string)$model->dataReceipts[$i]["data_received"] . "</font></td>";
-		} else {                                                       //If complete information, display a live URL
-			echo "<td bgcolor=darkseagreen><a href='" . (string)$model->dataReceipts[$i]["detail_url"] . "'><font face=arial size=2 color=darkblue>" . (string)$model->dataReceipts[$i]["data_received"] . "</a></font></td>";
-		}
-		echo "<td bgcolor=darkseagreen><font face=arial size=2 color=DarkSlateGray>" . (string)$model->dataReceipts[$i]["export_date"] . "</font></td>";
-		echo "</tr>";
-	}	
-	echo "</table>";
-	echo "<br />";
+	if(count($model->dataReceipts)){
+		echo "<h2>Data receipts related to this data set</h2>";
+		echo "<table id='datareceipt' name='datareceipt' border=0 cellpadding=5>";
+		for ($i = 0; $i < count($model->dataReceipts); $i++) 
+		{
+			$data_requested = (string)$model->dataReceipts[$i]["data_received"];
+			$detail_url = (string)$model->dataReceipts[$i]["detail_url"];
+			echo "<tr>";
+			echo "<td bgcolor=darkseagreen><font face=arial size=2 color=DarkSlateGray>" . (string)$model->dataReceipts[$i]["data_source_abbrev"] . "</td>";
+			if(empty($data_requested) or empty($detail_url)){              //If incomplete information, don't attempt to display a live URL
+				echo "<td bgcolor=darkseagreen><font face=arial size=2 color=DarkSlateGray>" . (string)$model->dataReceipts[$i]["data_received"] . "</font></td>";
+			} else {                                                       //If complete information, display a live URL
+				echo "<td bgcolor=darkseagreen><a href='" . (string)$model->dataReceipts[$i]["detail_url"] . "'><font face=arial size=2 color=darkblue>" . (string)$model->dataReceipts[$i]["data_received"] . "</a></font></td>";
+			}
+			echo "<td bgcolor=darkseagreen><font face=arial size=2 color=DarkSlateGray>" . (string)$model->dataReceipts[$i]["export_date"] . "</font></td>";
+			echo "</tr>";
+		}	
+		echo "</table>";
+		echo "<br />";
+	}
 	
 	//DATA DICTIONARIES
-	echo "<h2>Data dictionaries related to this data set</h2>";
-	echo "<table id='datadict' name='datadict' border=0 cellpadding=5>";
-	for ($i = 0; $i < count($model->dataDicts); $i++) 
-	{
-        $datadict_name = (string)$model->dataDicts[$i]["datadict_name"];
-		$detail_url = "index.php?r=datadict/view&id=" . (string)$model->dataDicts[$i]["id"];
-		echo "<tr>";
-		//echo "<td bgcolor=PaleTurquoise><font face=arial size=2 color=DarkSlateGray>" . (string)$model->dataDicts[$i]["datadict_name"] . "</td>";
-		if(empty($datadict_name) or empty($detail_url)){              //If incomplete information, don't attempt to display a live URL
-			echo "<td bgcolor=PaleTurquoise><font face=arial size=2 color=DarkSlateGray>" . (string)$model->dataDicts[$i]["datadict_name"] . "</font></td>";
-		} else {                                                       //If complete information, display a live URL
-			echo "<td bgcolor=PaleTurquoise><a href='" . $detail_url . "'><font face=arial size=2 color=darkblue>" . (string)$model->dataDicts[$i]["datadict_name"] . "</a></font></td>";
+	if(count($model->dataDicts)){
+		echo "<h2>Data dictionaries related to this data set</h2>";
+		echo "<table id='datadict' name='datadict' border=0 cellpadding=5>";
+
+		for ($i = 0; $i < count($model->dataDicts); $i++) 
+		{
+			$datadict_name = (string)$model->dataDicts[$i]["datadict_name"];
+			$detail_url = "index.php?r=datadict/view&id=" . (string)$model->dataDicts[$i]["id"];
+			echo "<tr>";
+			//echo "<td bgcolor=PaleTurquoise><font face=arial size=2 color=DarkSlateGray>" . (string)$model->dataDicts[$i]["datadict_name"] . "</td>";
+			if(empty($datadict_name) or empty($detail_url)){              //If incomplete information, don't attempt to display a live URL
+				echo "<td bgcolor=PaleTurquoise><font face=arial size=2 color=DarkSlateGray>" . (string)$model->dataDicts[$i]["datadict_name"] . "</font></td>";
+			} else {                                                       //If complete information, display a live URL
+				echo "<td bgcolor=PaleTurquoise><a href='" . $detail_url . "'><font face=arial size=2 color=darkblue>" . (string)$model->dataDicts[$i]["datadict_name"] . "</a></font></td>";
+			}
+			echo "<td bgcolor=PaleTurquoise><font face=arial size=2 color=DarkSlateGray>" . (string)$model->dataDicts[$i]["time_period"] . "</font></td>";
+			echo "</tr>";
 		}
-		echo "<td bgcolor=PaleTurquoise><font face=arial size=2 color=DarkSlateGray>" . (string)$model->dataDicts[$i]["time_period"] . "</font></td>";
-		echo "</tr>";
+		echo "</table>";
 	}	
-	echo "</table>";
 	
 	//END GMS CUSTOM
 	?>

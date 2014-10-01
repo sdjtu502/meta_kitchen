@@ -8,7 +8,9 @@ use yii\widgets\DetailView;
  * @var frontend\models\DataSource $model
  */
 
-$this->title = $model->id;
+//GMS CUSTOM change title to name, not ID#
+//$this->title = $model->id;
+$this->title = $model->data_source_name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Data Sources'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
